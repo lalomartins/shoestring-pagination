@@ -92,7 +92,6 @@ export class Pagination extends LitElement {
   render() {
     this.totalPages = Math.ceil(this.total / this.pageSize);
     const pages = this.generatePages();
-    console.log("pagination:", this.current, this.totalPages, pages);
     return html`
       <nav role="navigation" aria-label="Pagination Navigation">
         ${this.current === 1
