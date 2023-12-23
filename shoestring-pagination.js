@@ -5,9 +5,8 @@
  */
 
 import { LitElement, css, html } from "lit";
-import { customElement } from "lit/decorators.js";
-import "@shoelace-style/shoelace/dist/components/button/button";
-import "@shoelace-style/shoelace/dist/components/icon-button/icon-button";
+import "@shoelace-style/shoelace/dist/components/button/button.js";
+import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
 
 
 /**
@@ -15,7 +14,6 @@ import "@shoelace-style/shoelace/dist/components/icon-button/icon-button";
  *
  * @fires page-changed - Indicates when the page changes
  */
-@customElement("shoestring-pagination")
 export class Pagination extends LitElement {
   static properties = {
     current: {
@@ -144,8 +142,9 @@ export class Pagination extends LitElement {
     `;
   }
 }
+customElements.define("shoestring-pagination", Pagination);
+export default Pagination;
 
-@customElement("shoestring-pagination-page-button")
 export class PaginationPageButton extends LitElement {
   static properties = { page: { type: Number }, current: { type: Boolean } };
 
@@ -176,3 +175,4 @@ export class PaginationPageButton extends LitElement {
     </sl-button> `;
   }
 }
+customElements.define("shoestring-pagination-page-button", PaginationPageButton);

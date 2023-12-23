@@ -40,6 +40,7 @@
   "author": "Lalo Martins",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@shoelace-style/shoelace": "^2.12.0",
     "lit": "^3.0.0"
   },
   "devDependencies": {
