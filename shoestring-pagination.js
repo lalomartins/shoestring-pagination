@@ -24,7 +24,7 @@ import '@shoelace-style/shoelace/dist/components/visually-hidden/visually-hidden
  * @attr {Number} [surrounding-pages=2] - How many pages to display before and after current at most
  * @attr {Boolean} hide-on-single-page - If set, and all items fit in one page, hide the element
  *
- * @fires page-changed - Indicates when the page changes; value is in `event.detail.page`
+ * @fires page-change - Indicates when the page changes; value is in `event.detail.page`
  */
 export class Pagination extends LitElement {
   static properties = {
