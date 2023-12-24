@@ -7,6 +7,7 @@
 import {LitElement, css, html} from 'lit';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
+import '@shoelace-style/shoelace/dist/components/visually-hidden/visually-hidden.js';
 
 /**
  * A web component for pagination that uses Shoelace buttons for consistent UI.
@@ -90,6 +91,17 @@ export class Pagination extends LitElement {
 
   render() {
     this.totalPages = Math.ceil(this.total / this.pageSize);
+
+    if (this.hideOnSinglePage && this.totalPages < 2) {
+      return html`
+        <sl-visually-hidden>
+          <nav role="navigation" aria-label="Pagination Navigation">
+            Pagination not needed as all ${this.total} items fit in one page
+          </nav>
+        </sl-visually-hidden>
+      `;
+    }
+
     const pages = this.generatePages();
     return html`
       <nav role="navigation" aria-label="Pagination Navigation">

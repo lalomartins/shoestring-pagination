@@ -115,7 +115,7 @@ class DemoBlock extends LitElement {
       ></sl-input>
       <div>
         <shoestring-pagination
-          ?hideOnSinglePage=${this.hideOnSinglePage}
+          ?hide-on-single-page=${this.hideOnSinglePage}
           .surroundingPages=${this.surroundingPages}
           .current=${this.current}
           .total=${this.total}
