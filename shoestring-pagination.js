@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import { LitElement, css, html } from "lit";
-import "@shoelace-style/shoelace/dist/components/button/button.js";
-import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
-
+import {LitElement, css, html} from 'lit';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
 
 /**
- * An example element.
+ * A web component for pagination that uses Shoelace buttons for consistent UI.
  *
  * @fires page-changed - Indicates when the page changes
  */
@@ -21,18 +20,18 @@ export class Pagination extends LitElement {
     },
     pageSize: {
       type: Number,
-      attribute: "page-size",
+      attribute: 'page-size',
     },
     surroundingPages: {
       type: Number,
-      attribute: "surrounding-pages",
+      attribute: 'surrounding-pages',
     },
     total: {
       type: Number,
     },
     hideOnSinglePage: {
       type: Boolean,
-      attribute: "hide-on-single-page",
+      attribute: 'hide-on-single-page',
     },
   };
 
@@ -70,20 +69,20 @@ export class Pagination extends LitElement {
   }
 
   _dispatchPrev() {
-    const event = new CustomEvent("page-change", {
+    const event = new CustomEvent('page-change', {
       bubbles: true,
       composed: true,
-      detail: { page: this.current - 1 },
+      detail: {page: this.current - 1},
     });
 
     this.dispatchEvent(event);
   }
 
   _dispatchNext() {
-    const event = new CustomEvent("page-change", {
+    const event = new CustomEvent('page-change', {
       bubbles: true,
       composed: true,
-      detail: { page: this.current + 1 },
+      detail: {page: this.current + 1},
     });
 
     this.dispatchEvent(event);
@@ -141,11 +140,11 @@ export class Pagination extends LitElement {
     `;
   }
 }
-customElements.define("shoestring-pagination", Pagination);
+customElements.define('shoestring-pagination', Pagination);
 export default Pagination;
 
 export class PaginationPageButton extends LitElement {
-  static properties = { page: { type: Number }, current: { type: Boolean } };
+  static properties = {page: {type: Number}, current: {type: Boolean}};
 
   constructor() {
     super();
@@ -154,10 +153,10 @@ export class PaginationPageButton extends LitElement {
   }
 
   _dispatch() {
-    const event = new CustomEvent("page-change", {
+    const event = new CustomEvent('page-change', {
       bubbles: true,
       composed: true,
-      detail: { page: this.page },
+      detail: {page: this.page},
     });
 
     this.dispatchEvent(event);
@@ -165,7 +164,7 @@ export class PaginationPageButton extends LitElement {
 
   render() {
     return html`<sl-button
-      variant=${this.current ? "default" : "text"}
+      variant=${this.current ? 'default' : 'text'}
       ?disabled=${this.current}
       value=${this.page}
       @click=${this._dispatch}
@@ -174,4 +173,7 @@ export class PaginationPageButton extends LitElement {
     </sl-button> `;
   }
 }
-customElements.define("shoestring-pagination-page-button", PaginationPageButton);
+customElements.define(
+  'shoestring-pagination-page-button',
+  PaginationPageButton
+);
