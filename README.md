@@ -59,6 +59,24 @@ class MyPagedThing extends LitElement {
 customElements.define('my-paged-thing', MyPagedThing);
 ```
 
+If you're using Shoelace in your own project and you want to avoid loading two different copies, import like this:
+
+```js
+import '@shoelace-style/shoelace/dist/components/switch/switch.js';
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import '@lalomartins/shoestring-pagination/shoestring-pagination.js';
+```
+
+Otherwise, if you _want_ to use the bundled Shoelace, do this somewhere in your project (just once):
+
+```js
+import {setBasePath} '@lalomartins/shoestring-pagination';
+// …
+setBasePath("node_modules/@lalomartins/shoestring-pagination/node_modules/@shoelace-style/shoelace/dist/");
+```
+
+(You can also use CDNed Shoelace if you prefer.)
+
 ## API
 
 Attributes:
@@ -82,6 +100,29 @@ npm i @lalomartins/shoestring-pagination
 ```
 
 You don't need to import Shoelace on your own code if you're not using it, but you _do_ need to load your own CSS, whether it's from CDN, or from `node_modules`, or copying it into your build. You can check the [Shoelace install instructions](https://shoelace.style/getting-started/installation) for details.
+
+## CDN
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/dark.css"
+/>
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+></script>
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@lalomartins/shoestring-pagination@1.0.2/cdn/shoestring-pagination.js"
+></script>
+```
+
+If the arrows don't show up, tweak your import order to make sure you have the Shoelace base path set before Pagination loads.
 
 ## Screenshots
 

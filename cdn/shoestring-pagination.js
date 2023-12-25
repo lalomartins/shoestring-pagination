@@ -4,7 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-import {LitElement, css, html} from 'lit';
+import {
+  LitElement,
+  css,
+  html,
+} from 'https://cdn.jsdelivr.net/npm/lit@3.0.0/+esm';
 
 /**
  * A web component for pagination that uses Shoelace buttons for consistent UI.

@@ -1,6 +1,6 @@
 {
   "name": "@lalomartins/shoestring-pagination",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A web component for pagination that uses Shoelace buttons for consistent UI",
   "main": "shoestring-pagination.js",
   "module": "shoestring-pagination.js",

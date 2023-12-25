@@ -16,7 +16,7 @@
     />
     <script
       type="module"
-      src="../node_modules/@shoelace-style/shoelace/dist/components/switch/switch.js"
+      src="../node_modules/@shoelace-style/shoelace/dist/shoelace.js"
     ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +26,10 @@
     />
     <script type="module" src="../shoestring-pagination.js"></script>
     <script type="module" src="./demo-components.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@lalomartins/shoestring-theme-selector@1.0.0/cdn/shoestring-theme-selector.js"
+    ></script>
     <style>
       body > div {
         display: flex;
@@ -42,7 +46,9 @@
   <body>
     <div>
       <h1>Shoestring Pagination demo</h1>
-      <div id="controls"><sl-switch>Dark mode</sl-switch></div>
+      <div id="controls">
+        <shoestring-theme-selector></shoestring-theme-selector>
+      </div>
     </div>
     <div>
       <shoestring-pagination-demo-block
@@ -102,26 +108,5 @@
         total="7"
       ></shoestring-pagination-demo-block>
     </div>
-
-    <script>
-      (function setupDarkMode() {
-        const switchEl = document.querySelector('#controls sl-switch');
-        function updateMode(isDark) {
-          if (isDark) {
-            document.documentElement.classList.add('sl-theme-dark');
-          } else {
-            document.documentElement.classList.remove('sl-theme-dark');
-          }
-        }
-        switchEl.addEventListener('sl-change', (event) => {
-          updateMode(event.target.checked);
-        });
-        const systemDarkMode =
-          window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches;
-        switchEl.checked = systemDarkMode;
-        updateMode(systemDarkMode);
-      })();
-    </script>
   </body>
 </html>
